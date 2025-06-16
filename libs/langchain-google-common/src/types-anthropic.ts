@@ -1,5 +1,5 @@
 export interface AnthropicCacheControl {
-  type: "ephemeral" | string;
+  type: "ephemeral" | (string & {});
 }
 
 interface AnthropicMessageContentBase {
@@ -18,12 +18,12 @@ export interface AnthropicMessageContentImage
   type: "image";
   source:
     | {
-        type: "base64" | string;
+        type: "base64" | (string & {});
         media_type?: string;
         data: string;
       }
     | {
-        type: "url" | string;
+        type: "url" | (string & {});
         url: string;
       };
 }
@@ -40,21 +40,21 @@ export interface AnthropicMessageContentDocument
   type: "document";
   source:
     | {
-        type: "base64" | "text" | string;
-        media_type?: "application/pdf" | "text/plain" | string;
+        type: "base64" | "text" | (string & {});
+        media_type?: "application/pdf" | "text/plain" | (string & {});
         data: string;
       }
     | {
-        type: "url" | string;
+        type: "url" | (string & {});
         url: string;
       }
     | {
-        type: "content" | string;
+        type: "content" | (string & {});
         content: {
-          type: "image" | string;
+          type: "image" | (string & {});
           source:
             | {
-                type: "base64" | string;
+                type: "base64" | (string & {});
                 data: string;
                 media_type?:
                   | "image/jpeg"
@@ -64,11 +64,11 @@ export interface AnthropicMessageContentDocument
                   | string;
               }
             | {
-                type: "url" | string;
+                type: "url" | (string & {});
                 url: string;
               }
             | {
-                type: "text" | string;
+                type: "text" | (string & {});
                 text: string;
               };
         }[];

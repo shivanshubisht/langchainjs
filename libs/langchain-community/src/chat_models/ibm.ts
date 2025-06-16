@@ -100,7 +100,7 @@ export interface WatsonxCallOptionsChat
     WatsonxCallParams,
     WatsonxChatBasicOptions {
   promptIndex?: number;
-  tool_choice?: TextChatParameterTools | string | "auto" | "any";
+  tool_choice?: TextChatParameterTools | (string & {}) | "auto" | "any";
 }
 
 export interface WatsonxCallOptionsDeployedChat
@@ -108,7 +108,7 @@ export interface WatsonxCallOptionsDeployedChat
     WatsonxCallDeployedParams,
     WatsonxChatBasicOptions {
   promptIndex?: number;
-  tool_choice?: TextChatParameterTools | string | "auto" | "any";
+  tool_choice?: TextChatParameterTools | (string & {}) | "auto" | "any";
 }
 
 type ChatWatsonxToolType = BindToolsInput | TextChatParameterTools;
@@ -344,7 +344,7 @@ function _convertDeltaToMessageChunk(
 }
 
 function _convertToolChoiceToWatsonxToolChoice(
-  toolChoice: TextChatParameterTools | string | "auto" | "any"
+  toolChoice: TextChatParameterTools | (string & {}) | "auto" | "any"
 ) {
   if (typeof toolChoice === "string") {
     if (toolChoice === "any" || toolChoice === "required") {

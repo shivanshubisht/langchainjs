@@ -129,7 +129,7 @@ export interface GoogleAISafetySetting {
 
 export type GoogleAIResponseMimeType = "text/plain" | "application/json";
 
-export type GoogleAIModelModality = "TEXT" | "IMAGE" | "AUDIO" | string;
+export type GoogleAIModelModality = "TEXT" | "IMAGE" | "AUDIO" | (string & {});
 
 export interface GoogleThinkingConfig {
   thinkingBudget?: number;
@@ -372,7 +372,7 @@ export interface GoogleAIModelRequestParams extends GoogleAIModelParams {
    * The tool configuration's "any" mode ("forced function calling") is supported for Gemini 1.5 Pro models only.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  tool_choice?: string | "auto" | "any" | "none" | Record<string, any>;
+  tool_choice?: (string & {}) | "auto" | "any" | "none" | Record<string, any>;
   /**
    * Allowed functions to call when the mode is "any".
    * If empty, any one of the provided functions are called.

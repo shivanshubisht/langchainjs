@@ -266,7 +266,7 @@ export type StructuredOutputType = InferInteropZodOutput<InteropZodObject>;
 export type StructuredOutputMethodOptions<IncludeRaw extends boolean = false> =
   {
     name?: string;
-    method?: "functionCalling" | "jsonMode" | "jsonSchema" | string;
+    method?: "functionCalling" | "jsonMode" | "jsonSchema" | (string & {});
     includeRaw?: IncludeRaw;
     /** Whether to use strict mode. Currently only supported by OpenAI models. */
     strict?: boolean;

@@ -23,7 +23,7 @@ type ChatXAIToolType = BindToolsInput | OpenAIClient.ChatCompletionTool;
 export interface ChatXAICallOptions extends BaseChatModelCallOptions {
   headers?: Record<string, string>;
   tools?: ChatXAIToolType[];
-  tool_choice?: OpenAIToolChoice | string | "auto" | "any";
+  tool_choice?: OpenAIToolChoice | (string & {}) | "auto" | "any";
 }
 
 export interface ChatXAIInput extends BaseChatModelParams {

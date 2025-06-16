@@ -24,7 +24,7 @@ import {
 } from "../utils/types/zod.js";
 import { JSONSchema } from "../utils/json_schema.js";
 
-export type ResponseFormat = "content" | "content_and_artifact" | string;
+export type ResponseFormat = "content" | "content_and_artifact" | (string & {});
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ToolOutputType = any;
